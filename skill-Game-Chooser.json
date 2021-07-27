@@ -1,0 +1,465 @@
+{
+  "intents": [
+    {
+      "intent": "Fighting",
+      "examples": [
+        {
+          "text": "Fighting"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Genres",
+      "examples": [
+        {
+          "text": "Game Genres"
+        },
+        {
+          "text": "Games"
+        },
+        {
+          "text": "Genre"
+        },
+        {
+          "text": "Genres"
+        },
+        {
+          "text": "Hi"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Platformers",
+      "examples": [
+        {
+          "text": "Platformer"
+        },
+        {
+          "text": "Platformers"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "RPG",
+      "examples": [
+        {
+          "text": "Role Playing Games"
+        },
+        {
+          "text": "RPG"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Shooters",
+      "examples": [
+        {
+          "text": "Shooter"
+        },
+        {
+          "text": "Shooters"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Sports",
+      "examples": [
+        {
+          "text": "Sport"
+        },
+        {
+          "text": "Sports"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Survival",
+      "examples": [
+        {
+          "text": "Survival"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_5_1627395546718",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Minecraft"
+              },
+              {
+                "text": "Rust "
+              },
+              {
+                "text": "Subnautica"
+              },
+              {
+                "text": "Frostpunk"
+              },
+              {
+                "text": "Tribes of Midgard"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1627395546718",
+      "conditions": "#Survival",
+      "dialog_node": "node_2_1627398538692",
+      "previous_sibling": "node_7_1627398537561"
+    },
+    {
+      "type": "standard",
+      "title": "Chooser",
+      "output": {
+        "generic": [
+          {
+            "title": "Please choose which of the following genres would you like the chatbot to select a random game from: \"Role Playing Games\", \"Sports\", \"Platformers\", \"Shooters\", \"Survival\", \"Fighting\".",
+            "options": [
+              {
+                "label": "RPG",
+                "value": {
+                  "input": {
+                    "text": "Role Playing Games"
+                  }
+                }
+              },
+              {
+                "label": "Sports",
+                "value": {
+                  "input": {
+                    "text": "Sports"
+                  }
+                }
+              },
+              {
+                "label": "Platformers",
+                "value": {
+                  "input": {
+                    "text": "Platformers"
+                  }
+                }
+              },
+              {
+                "label": "Shooters",
+                "value": {
+                  "input": {
+                    "text": "Shooters"
+                  }
+                }
+              },
+              {
+                "label": "Survival",
+                "value": {
+                  "input": {
+                    "text": "Survival"
+                  }
+                }
+              },
+              {
+                "label": "Fighting",
+                "value": {
+                  "input": {
+                    "text": "Fighting"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "conditions": "#Genres",
+      "dialog_node": "node_5_1627395546718",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "The Witcher 3:Wild Hunt"
+              },
+              {
+                "text": "Final Fantasy 7 Remake"
+              },
+              {
+                "text": "The Outer Worlds"
+              },
+              {
+                "text": "Persona 5 Royal"
+              },
+              {
+                "text": "The Elder Scrolls V: Skyrim"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "parent": "node_5_1627395546718",
+      "conditions": "#RPG",
+      "dialog_node": "node_5_1627398123698"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Tekken 7"
+              },
+              {
+                "text": "Mortal Kombat 11"
+              },
+              {
+                "text": "Street Fighter V"
+              },
+              {
+                "text": "Soulcalibur VI"
+              },
+              {
+                "text": "Super Smash Bros. Ultimate"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "parent": "node_5_1627395546718",
+      "conditions": "#Fighting",
+      "dialog_node": "node_6_1627398534011",
+      "previous_sibling": "node_7_1627398415437"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Fifa 21"
+              },
+              {
+                "text": "NBA 2K21"
+              },
+              {
+                "text": "Rocket Leauge"
+              },
+              {
+                "text": "eFootball PES 2021"
+              },
+              {
+                "text": "Tony Hawk's Pro Skater 1 + 2"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "parent": "node_5_1627395546718",
+      "conditions": "#Sports",
+      "dialog_node": "node_7_1627398415437",
+      "previous_sibling": "node_5_1627398123698"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hollow Knight"
+              },
+              {
+                "text": "Celeste "
+              },
+              {
+                "text": "Ori and the Blind Forest"
+              },
+              {
+                "text": "Crash Bandicoot 4: It's About Time"
+              },
+              {
+                "text": "Super Mario Odyssey"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "parent": "node_5_1627395546718",
+      "conditions": "#Platformers",
+      "dialog_node": "node_7_1627398536401",
+      "previous_sibling": "node_6_1627398534011"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Overwatch"
+              },
+              {
+                "text": "DOOM Eternal"
+              },
+              {
+                "text": "Call of Duty: Warzone"
+              },
+              {
+                "text": "Apex Legends"
+              },
+              {
+                "text": "Destiny 2"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "parent": "node_5_1627395546718",
+      "conditions": "#Shooters",
+      "dialog_node": "node_7_1627398537561",
+      "previous_sibling": "node_7_1627398536401"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "title": "Please choose which of the following genres would you like the chatbot to select a random game from: \"Role Playing Games\", \"Sports\", \"platformers\", \"Shooters\", \"Survival\", \"Fighting\", Adventure\".",
+            "options": [
+              {
+                "label": "RPG",
+                "value": {
+                  "input": {
+                    "text": ""
+                  }
+                }
+              },
+              {
+                "label": "Sports",
+                "value": {
+                  "input": {
+                    "text": ""
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_5_1627395546718",
+      "disabled": true,
+      "dialog_node": "response_10_1627397063284",
+      "previous_sibling": "node_2_1627398538692"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. Please write \"Games\" or \"Genres\" to show the different genres avaliable."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "Game Chooser",
+  "language": "en",
+  "description": ""
+}
